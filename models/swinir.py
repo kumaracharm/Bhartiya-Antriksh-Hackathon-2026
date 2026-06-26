@@ -1,3 +1,3 @@
-def enhance(image):
-    print("SwinIR enhancement step complete")
-    return image
+from project_models.enhance import Enhancer, enhance
+
+__all__ = ["Enhancer", "enhance"]
