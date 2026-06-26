@@ -1,0 +1,15 @@
+Raw Infrared Satellite Image
+        ↓
+Image Loading
+        ↓
+Resize & Preprocessing
+        ↓
+Tensor Conversion
+        ↓
+Enhancement Model
+        ↓
+Colorization Model
+        ↓
+Object Interpretation
+        ↓
+Final Output
