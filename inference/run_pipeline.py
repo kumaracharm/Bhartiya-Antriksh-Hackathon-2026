@@ -12,6 +12,7 @@ enhanced = enhance(processed)
 result = colorize(enhanced)
 
 # SAVE OUTPUT (important upgrade)
-cv2.imwrite("outputs/final_output.jpg", result)
+img = (img * 255).clip(0, 255).astype("uint8")
+cv2.imwrite(output_path, img)
 
 print("Pipeline completed. Output saved to outputs/final_output.jpg")
