@@ -3,4 +3,10 @@ __pycache__/
 outputs/
 *.jpg
 *.png
-*.tif
+*.tifdata/raw/SwinIR/
+vendor/SwinIR/
+.venv/
+__pycache__/
+*.ipynb
+*.zip
+hackathon_pipeline.egg-info/
