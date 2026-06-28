@@ -1,0 +1,5 @@
+torch>=2.0
+torchvision>=0.15
+numpy>=1.24
+opencv-python>=4.8
+timm>=0.9

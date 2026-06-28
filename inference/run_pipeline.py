@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import argparse
 from pathlib import Path
 
 import cv2
@@ -52,5 +53,33 @@ def run_pipeline(
     return final
 
 
+def _parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Run TIR enhancement and colorization pipeline")
+    parser.add_argument(
+        "input",
+        nargs="?",
+        default=str(DEFAULT_INPUT),
+        help="Input image path (default: data/raw/test.jpg)",
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        default=str(DEFAULT_OUTPUT),
+        help="Output image path (default: outputs/final_output.jpg)",
+    )
+    parser.add_argument(
+        "--weights",
+        default=None,
+        help="Optional SwinIR weights path",
+    )
+    return parser.parse_args()
+
+
+def main() -> None:
+    args = _parse_args()
+    weights = Path(args.weights) if args.weights else None
+    run_pipeline(Path(args.input), Path(args.output), weights)
+
+
 if __name__ == "__main__":
-    run_pipeline()
+    main()

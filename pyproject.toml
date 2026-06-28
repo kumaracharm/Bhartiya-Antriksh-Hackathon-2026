@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "hackathon-pipeline"
+version = "0.1.0"
+description = "TIR super-resolution and colorization hackathon pipeline"
+requires-python = ">=3.10"
+dependencies = [
+  "torch>=2.0",
+  "torchvision>=0.15",
+  "numpy>=1.24",
+  "opencv-python>=4.8",
+  "timm>=0.9",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["inference*", "project_models*"]
