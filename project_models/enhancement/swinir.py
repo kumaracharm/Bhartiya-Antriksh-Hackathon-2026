@@ -176,3 +176,26 @@ def enhance_image(image_path: str | os.PathLike[str]) -> str:
     result = enhance(image)
     cv2.imwrite(str(output_path), result)
     return str(output_path)
+import cv2
+import numpy as np
+
+def _bicubic_upscale(image: np.ndarray, scale: int = 2) -> np.ndarray:
+    if image is None:
+        return np.zeros((128,128,3), dtype=np.uint8)
+
+    if len(image.shape) == 2:
+        image = cv2.cvtColor(image, cv2.COLOR_GRAY2BGR)
+
+    h, w = image.shape[:2]
+
+    return cv2.resize(
+        image,
+        (w * scale, h * scale),
+        interpolation=cv2.INTER_CUBIC
+    )
+class Enhancer:
+    def __init__(self, scale=2):
+        self.scale = scale
+
+    def enhance(self, image):
+        return _bicubic_upscale(image, self.scale)

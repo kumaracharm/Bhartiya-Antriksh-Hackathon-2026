@@ -1,12 +1,7 @@
+input/product/
+output/
+*.tif
+*.TIF
+*.pth
 __pycache__/
 *.pyc
-outputs/
-*.jpg
-*.png
-*.tifdata/raw/SwinIR/
-vendor/SwinIR/
-.venv/
-__pycache__/
-*.ipynb
-*.zip
-hackathon_pipeline.egg-info/
